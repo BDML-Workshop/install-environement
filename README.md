@@ -1,4 +1,4 @@
-# install-environement
+# install environement before Spark, just python3 and dev environement
 
 Install the environment for the workshop
 # Table of Contents
@@ -14,12 +14,14 @@ Install the environment for the workshop
 # you have a windows 10 build > 1903
 
 ## Add WSL from "Turn windows features on off"
-With the GUI or simply open powershell as Adminsitrator and run this command
+With the GUI or simply open powershell as Adminsitrator
+
+First, open PowerShell as an Administrator and run the following commands:
 
 ```ps
-dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 ```
-
 Reboot if needed
 
 ## Install Ubuntu 20.04 and Visual Studio code from microsoft store
@@ -71,3 +73,27 @@ bdml@PF:~$
 
 #### inportant package for python
 
+There are a few more packages and development tools to install to ensure that we have a robust setup for our programming environment:
+
+sudo apt install -y python3-pip build-essential libssl-dev libffi-dev python3-dev
+
+#### Setting up JupyterLab
+JupyterLab requires Python 3, as well as a Python package manager – we’ll use pip – so let’s install these now. Open a WSL terminal (if you’re not sure how to do this, search for Ubuntu in the start menu and hit return) and type the following command:
+
+sudo apt install python3 python3-pip
+You’ll be prompted for your password that you set earlier - note that it won’t show up on the screen at all as you type, but this is normal. After pressing return, you’ll then be prompted to continue, which you can do by pressing return once again.
+
+Now that you’ve installed Python, it’s time to install JupyterLab:
+
+`python3 -m pip install --user jupyterlab pandas matplotlib`
+
+Along with JupyterLab, we’ll also install pandas and Matplotlib, as these are two popular Python libraries used in conjunction with Jupyter itself.
+
+We use the `--user` option to install these packages separately from system packages 
+– system ones are managed by apt (the command we used earlier to install Python) and we could cause problems if we install packages with pip globally, rather than with --user.
+
+then try it 
+
+`jupyter lab --no-browser`
+
+We specify the --no-browser option to disable automatically opening a browser window, as this feature doesn’t work in WSL, and instead we’ll open the page manually.
