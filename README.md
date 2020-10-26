@@ -97,12 +97,20 @@ You’ll be prompted for your password that you set earlier - note that it won�
 
 Now that you’ve installed Python, it’s time to install JupyterLab:
 
-`python3 -m pip install --user jupyterlab pandas matplotlib`
+`~/vBDML/bin/pip install jupyterlab pandas matplotlib`
 
 Along with JupyterLab, we’ll also install pandas and Matplotlib, as these are two popular Python libraries used in conjunction with Jupyter itself.
 
-We use the `--user` option to install these packages separately from system packages 
-– system ones are managed by apt (the command we used earlier to install Python) and we could cause problems if we install packages with pip globally, rather than with --user.
+#### Some worjk arround in WSL
+
+```bash
+(vBDML) bdml@PF:~$ jupyter lab --generate-config
+Writing default config to: /home/bdml/.jupyter/jupyter_notebook_config.py
+```
+
+edit the file jupyter_notebook_config.py with VScode for example
+
+`code  /home/bdml/.jupyter/jupyter_notebook_config.py`
 
 then try it 
 
