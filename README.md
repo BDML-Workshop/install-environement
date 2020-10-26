@@ -77,6 +77,18 @@ There are a few more packages and development tools to install to ensure that we
 
 sudo apt install -y python3-pip build-essential libssl-dev libffi-dev python3-dev
 
+#### Setup a virtualenv
+
+To avoid conlicting packge and create an isoleted environement we create virtual environement
+
+##### install the package
+
+`python3 -m venv /home/bdml/vBDML`
+
+##### activate the virtual env
+
+`source ~/vBDML/bin/activate`
+
 #### Setting up JupyterLab
 JupyterLab requires Python 3, as well as a Python package manager – we’ll use pip – so let’s install these now. Open a WSL terminal (if you’re not sure how to do this, search for Ubuntu in the start menu and hit return) and type the following command:
 
